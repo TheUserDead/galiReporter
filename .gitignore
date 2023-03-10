@@ -1,0 +1,12 @@
+
+serverSide/settings.json
+*.log
+TST_parser.py
+TST_reporter.py
+*.pyc
+*.gz
+result.json
+settings.json
+drivers.json
+out.png
+reportwifi.py

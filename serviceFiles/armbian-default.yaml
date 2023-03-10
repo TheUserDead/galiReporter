@@ -1,0 +1,15 @@
+network:
+  version: 2
+  renderer: NetworkManager
+  wifis:
+    wlx1cbfceedf93a:
+      dhcp4: yes
+      dhcp6: no
+      access-points:
+        ap1:
+          password: ap1pass
+        ap2:
+          password: ap2pass
+        ap3:
+          password: ap3pass
+

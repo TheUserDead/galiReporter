@@ -1,0 +1,297 @@
+{
+	"archive": {
+		"item": [
+			{
+				"_name": "HV",
+				"_tag": "01",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "SV",
+				"_tag": "02",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "IMEI",
+				"_tag": "03",
+				"_format": "string",
+				"_size": "15"
+			},
+			{
+				"_name": "ID",
+				"_tag": "04",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "PACK",
+				"_tag": "10",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "TMD",
+				"_tag": "20",
+				"_format": "dt",
+				"_size": "4"
+			},
+			{
+				"_name": "SAT",
+				"_tag": "30",
+				"_format": "sat",
+				"_size": "1"
+			},
+			{
+				"_name": "LAT",
+				"_tag": "30",
+				"_format": "int",
+				"_size": "4"
+			},
+			{
+				"_name": "LON",
+				"_tag": "30",
+				"_format": "int",
+				"_size": "4"
+			},
+			{
+				"_name": "SPD",
+				"_tag": "33",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "COURSE",
+				"_tag": "33",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "HEIGHT",
+				"_tag": "34",
+				"_format": "int",
+				"_size": "2"
+			},
+			{
+				"_name": "HDOP",
+				"_tag": "35",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "STATDEV",
+				"_tag": "40",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "POWER",
+				"_tag": "41",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "BAT",
+				"_tag": "42",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "TEMPER",
+				"_tag": "43",
+				"_format": "int",
+				"_size": "1"
+			},
+			{
+				"_name": "Acceleration",
+				"_tag": "44",
+				"_format": "uint",
+				"_size": "4"
+			},
+			{
+				"_name": "OUTS",
+				"_tag": "45",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INPS",
+				"_tag": "46",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "DRIVER_BEHAVIOUR",
+				"_tag": "47",
+				"_format": "uint",
+				"_size": "4"
+			},
+			{
+				"_name": "INP[0]",
+				"_tag": "50",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[1]",
+				"_tag": "51",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[2]",
+				"_tag": "52",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[3]",
+				"_tag": "53",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[4]",
+				"_tag": "54",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[5]",
+				"_tag": "55",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[6]",
+				"_tag": "56",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[7]",
+				"_tag": "57",
+				"_format": "uint",
+				"_size": "2"
+			}
+		],
+		"_internal_memory_size": "2096128",
+		"time_byte_order": "BE"
+	},
+	"diagnostic": {
+		"item": [
+			{
+				"_id": "_STAR",
+				"_name": "*",
+				"_index": "5"
+			},
+			{
+				"_id": "_TIME",
+				"_name": "Time",
+				"_index": "6"
+			},
+			{
+				"_id": "_GPS",
+				"_name": "Navigation data",
+				"_index": "7"
+			},
+			{
+				"_id": "_GPS_F",
+				"_name": "Navigation data detailed",
+				"_index": "8"
+			},
+			{
+				"_id": "_GPRS",
+				"_name": "Data transmission",
+				"_index": "9"
+			},
+			{
+				"_id": "_GPRS_F",
+				"_name": "Data transmission detailed",
+				"_index": "10"
+			},
+			{
+				"_id": "_MEM",
+				"_name": "Memory",
+				"_index": "11"
+			},
+			{
+				"_id": "_MEM_F",
+				"_name": "Memory detailed",
+				"_index": "12"
+			},
+			{
+				"_id": "_AUTOINF",
+				"_name": "Autoinformer",
+				"_index": "13"
+			},
+			{
+				"_id": "_CAN",
+				"_name": "CAN",
+				"_index": "15"
+			},
+			{
+				"_id": "_CAN_F",
+				"_name": "CAN detailed",
+				"_index": "16"
+			},
+			{
+				"_id": "_LLS0",
+				"_name": "RS232 0",
+				"_index": "17"
+			},
+			{
+				"_id": "_LLS1",
+				"_name": "RS485",
+				"_index": "19"
+			},
+			{
+				"_id": "_GPS_O",
+				"_name": "GPS/GLONASS-module",
+				"_index": "21"
+			},
+			{
+				"_id": "_GPRS_O",
+				"_name": "GSM/GPRS-module",
+				"_index": "22"
+			},
+			{
+				"_id": "_1-WIRE",
+				"_name": "1-Wire",
+				"_index": "23"
+			},
+			{
+				"_id": "_ACC",
+				"_name": "Accelerometer",
+				"_index": "24"
+			},
+			{
+				"_id": "_SCRIPT",
+				"_name": "Algorithms",
+				"_index": "26"
+			},
+			{
+				"_id": "_SCRIPT",
+				"_name": "Algorithm and script diagnostics",
+				"_index": "27"
+			}
+		]
+	},
+	"userManuals": {
+		"item": [
+			{
+				"_localization": "ru",
+				"_url": "https://7gis.ru/assets/files/docs/manuals_ru/rukovodstvo-polzovatelya-v5.0.pdf"
+			},
+			{
+				"_localization": "en",
+				"_url": "https://galileosky.com/assets/files/docs/manuals_en/galileosky-glonass-gps-v5.0-user-manual.pdf"
+			},
+			{
+				"_localization": "es",
+				"_url": "https://galileosky.com/es/assets/files/docs/manuals_en/terminals-galileosky-glonass-gps-v5.0-user-manual-(292857-v6).pdf"
+			}
+		]
+	}
+}

@@ -1,0 +1,182 @@
+{
+	"archive": {
+		"item": [
+			{
+				"_name": "HV",
+				"_tag": "01",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "SV",
+				"_tag": "02",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "IMEI",
+				"_tag": "03",
+				"_format": "string",
+				"_size": "15"
+			},
+			{
+				"_name": "ID",
+				"_tag": "04",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "PACK",
+				"_tag": "10",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "TMD",
+				"_tag": "20",
+				"_format": "dt",
+				"_size": "4"
+			},
+			{
+				"_name": "SAT",
+				"_tag": "30",
+				"_format": "sat",
+				"_size": "1"
+			},
+			{
+				"_name": "LAT",
+				"_tag": "30",
+				"_format": "int",
+				"_size": "4"
+			},
+			{
+				"_name": "LON",
+				"_tag": "30",
+				"_format": "int",
+				"_size": "4"
+			},
+			{
+				"_name": "SPD",
+				"_tag": "33",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "COURSE",
+				"_tag": "33",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "HEIGHT",
+				"_tag": "34",
+				"_format": "int",
+				"_size": "2"
+			},
+			{
+				"_name": "HDOP",
+				"_tag": "35",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "STATDEV",
+				"_tag": "40",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "POWER",
+				"_tag": "41",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "BAT",
+				"_tag": "42",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "TEMPER",
+				"_tag": "43",
+				"_format": "int",
+				"_size": "1"
+			},
+			{
+				"_name": "Acceleration",
+				"_tag": "44",
+				"_format": "uint",
+				"_size": "4"
+			},
+			{
+				"_name": "OUTS",
+				"_tag": "45",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INPS",
+				"_tag": "46",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "DRIVER_BEHAVIOUR",
+				"_tag": "47",
+				"_format": "uint",
+				"_size": "4"
+			},
+			{
+				"_name": "INP[0]",
+				"_tag": "50",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[1]",
+				"_tag": "51",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[2]",
+				"_tag": "52",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[3]",
+				"_tag": "53",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[4]",
+				"_tag": "54",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[5]",
+				"_tag": "55",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[6]",
+				"_tag": "56",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[7]",
+				"_tag": "57",
+				"_format": "uint",
+				"_size": "2"
+			}
+		],
+		"_internal_memory_size": "2096128",
+		"time_byte_order": "BE"
+	}
+}

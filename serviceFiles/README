@@ -1,0 +1,14 @@
+README
+
+Remember. Everythong is inked to use on /home/gallileo_reporter folder!
+Update script must be running from /home folder
+
+comm.py - direct comm intarface if need direct access to tracker. If trackerconnector in use, remember about blocking!
+
+deploy.sh - deploy automation sctipt to install running environment like python and modules
+
+prepare.sh - try to made automatic configure system and wifi autoconnect as a service. Copying wpa_supplicant.conf and dhclient.service to system folders. !!! may not be compatible with your system !!!
+
+upd.sh - update sctipt from github compares sha csum of folder and remore reposoroty. Very dumb and at this time removes config! Need to copy to another folder like /home
+
+wpa.sh - try to deal working autoconnect wifi by restart service but at this time it's not need bacause i didn't carefully read wpa_supplicant multi AP configuration...

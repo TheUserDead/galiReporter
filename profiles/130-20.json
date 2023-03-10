@@ -1,0 +1,357 @@
+{
+	"archive": {
+		"item": [
+			{
+				"_name": "HV",
+				"_tag": "01",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "SV",
+				"_tag": "02",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "IMEI",
+				"_tag": "03",
+				"_format": "string",
+				"_size": "15"
+			},
+			{
+				"_name": "ID",
+				"_tag": "04",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "USER",
+				"_tag": "05",
+				"_format": "string",
+				"_size": "128"
+			},
+			{
+				"_name": "PACK",
+				"_tag": "10",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "TMD",
+				"_tag": "20",
+				"_format": "dt",
+				"_size": "4"
+			},
+			{
+				"_name": "SAT",
+				"_tag": "30",
+				"_format": "sat",
+				"_size": "1"
+			},
+			{
+				"_name": "LAT",
+				"_tag": "30",
+				"_format": "int",
+				"_size": "4"
+			},
+			{
+				"_name": "LON",
+				"_tag": "30",
+				"_format": "int",
+				"_size": "4"
+			},
+			{
+				"_name": "SPD",
+				"_tag": "33",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "COURSE",
+				"_tag": "33",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "HEIGHT",
+				"_tag": "34",
+				"_format": "int",
+				"_size": "2"
+			},
+			{
+				"_name": "HDOP",
+				"_tag": "35",
+				"_format": "uint",
+				"_size": "1"
+			},
+			{
+				"_name": "STATDEV",
+				"_tag": "40",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "POWER",
+				"_tag": "41",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "BAT",
+				"_tag": "42",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "TEMPER",
+				"_tag": "43",
+				"_format": "int",
+				"_size": "1"
+			},
+			{
+				"_name": "OUTS",
+				"_tag": "45",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INPS",
+				"_tag": "46",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "DRIVER_BEHAVIOUR",
+				"_tag": "47",
+				"_format": "uint",
+				"_size": "4"
+			},
+			{
+				"_name": "STATDEV2",
+				"_tag": "48",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[0]",
+				"_tag": "50",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[1]",
+				"_tag": "51",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[2]",
+				"_tag": "52",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[3]",
+				"_tag": "53",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[4]",
+				"_tag": "54",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[5]",
+				"_tag": "55",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[6]",
+				"_tag": "56",
+				"_format": "uint",
+				"_size": "2"
+			},
+			{
+				"_name": "INP[7]",
+				"_tag": "57",
+				"_format": "uint",
+				"_size": "2"
+			}
+		],
+		"time_byte_order": "LE"
+	},
+	"statusProcess": {
+		"item": [
+			{
+				"_id": "_loadIMEIProcess",
+				"_mask": "8"
+			},
+			{
+				"_id": "_statusProcessGPS",
+				"_mask": "4"
+			},
+			{
+				"_id": "_statusProcessPacket",
+				"_mask": "8"
+			},
+			{
+				"_id": "_inAllProcess",
+				"_mask": "10",
+				"_value": "6"
+			},
+			{
+				"_id": "_inAllProcessRS232",
+				"_mask": "410"
+			},
+			{
+				"_id": "_rs485V132",
+				"_mask": "200"
+			},
+			{
+				"_id": "_mHoursProcess"
+			},
+			{
+				"_id": "_inSysProcess"
+			},
+			{
+				"_id": "_temp0ProcessV22",
+				"_mask": "8000"
+			},
+			{
+				"_id": "_temp1ProcessV22",
+				"_mask": "8000"
+			},
+			{
+				"_id": "_canProcess",
+				"_mask": "800"
+			},
+			{
+				"_id": "_iButProcess",
+				"_mask": "8210"
+			},
+			{
+				"_id": "_inOutStatusProcess"
+			},
+			{
+				"_id": "_lastPhotoProcess0"
+			},
+			{
+				"_id": "_lastPhotoProcess1"
+			},
+			{
+				"_id": "_lastPhotoProcess2"
+			}
+		]
+	},
+	"IncrementSpecification": {
+		"item": [
+			{
+				"_id": "Termometer",
+				"_bit": "0"
+			},
+			{
+				"_id": "Accelerometer",
+				"_bit": "1"
+			},
+			{
+				"_id": "Navigation module",
+				"_bit": "2"
+			},
+			{
+				"_id": "Cellular module",
+				"_bit": "3"
+			},
+			{
+				"_id": "Inputs",
+				"_bit": "4"
+			},
+			{
+				"_id": "Outputs",
+				"_bit": "5"
+			},
+			{
+				"_id": "Internal memory",
+				"_bit": "6",
+				"_count": "3",
+				"_rez_1": "2 Mbyte",
+				"_rez_2": "16 Mbyte",
+				"_rez_3": "128 Mbyte"
+			},
+			{
+				"_id": "RS485",
+				"_bit": "9"
+			},
+			{
+				"_id": "RS232",
+				"_bit": "10"
+			},
+			{
+				"_id": "CAN",
+				"_bit": "11"
+			},
+			{
+				"_id": "Battery",
+				"_bit": "12",
+				"_count": "3",
+				"_rez_1": "600 mAh",
+				"_rez_2": "2000 mAh"
+			},
+			{
+				"_id": "1-Wire",
+				"_bit": "15"
+			},
+			{
+				"_id": "Memory card",
+				"_bit": "16"
+			},
+			{
+				"_id": "Voice connection",
+				"_bit": "17"
+			},
+			{
+				"_id": "Autoinformer",
+				"_bit": "18"
+			},
+			{
+				"_id": "Wi-Fi",
+				"_bit": "19"
+			},
+			{
+				"_id": "Bluetooth",
+				"_bit": "20"
+			},
+			{
+				"_id": "Modem 868 MHz",
+				"_bit": "21"
+			},
+			{
+				"_id": "USB device power supply",
+				"_bit": "22"
+			},
+			{
+				"_id": "Sim-chip",
+				"_bit": "23"
+			}
+		]
+	},
+	"userManuals": {
+		"item": [
+			{
+				"_localization": "ru",
+				"_url": "https://7gis.ru/assets/files/docs/manuals_ru/rukovodstvo-polzovatelya-programmiruemyie-kontrolleryi-galileosky.pdf"
+			},
+			{
+				"_localization": "en",
+				"_url": "https://galileosky.com/assets/files/docs/manuals_en/galileosky-7-user-manual.pdf"
+			},
+			{
+				"_localization": "es",
+				"_url": "https://galileosky.com/es/assets/files/docs/manuals_en/user-manual-7.0-eng.pdf"
+			}
+		]
+	}
+}

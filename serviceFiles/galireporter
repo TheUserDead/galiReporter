@@ -1,0 +1,11 @@
+/home/GaliReporter/gconnector.log
+/home/GaliReporter/greporter.log
+/home/GaliReporter/grequester.log
+{
+weekly
+copytruncate
+rotate 3
+size 10M
+compress
+delaycompress
+}
