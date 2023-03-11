@@ -48,29 +48,61 @@ def connected_to_internet(url='http://upd.sysspec.ru', timeout=5):
     pass
   return False
 
-def uploads(archfile):
-  logging.info("<i> Upload arch {}".format(archfile))
+# def uploads(archfile):
+#   logging.info("<i> Upload arch {}".format(archfile))
+#   x = settingsRead("server")
+#   ftpServer = x[2]
+#   ftpUser = x[3]
+#   ftpPass = x[4]
+#   session = ftplib.FTP(ftpServer,ftpUser,ftpPass)
+#   file = open(archfile,'rb') 
+#   session.cwd("/")
+#   answer = session.storbinary('STOR /{}'.format(archfile[7:]), file)     # send the file and cut start text with foldername
+#   answer = answer.split(" ")
+#   if answer[0] == "226":
+#     logging.info("Upload succesful")
+#   file.close()                                    # close file and FTP
+#   filelist = glob.glob("upload/*.tar.gz")
+#   for n in filelist: # remove all compressed log files
+#     os.remove(n)
+#   logging.info("Archives Purged")
+#   now = datetime.datetime.now()
+#   tm = f'{now.year}.{now.month}.{now.day}-{now.hour}:{now.minute}'
+#   settingsUpdate("archive", "dateReported", tm)
+#   logging.info("Successfull reporting at {}".format(tm))
+#   session.quit()
+
+def uploads(): #upload all tar.gz files from upload/ folder
   x = settingsRead("server")
   ftpServer = x[2]
   ftpUser = x[3]
   ftpPass = x[4]
-  session = ftplib.FTP(ftpServer,ftpUser,ftpPass)
-  file = open(archfile,'rb') 
-  session.cwd("/")
-  answer = session.storbinary('STOR /{}'.format(archfile[7:]), file)     # send the file and cut start text with foldername
-  answer = answer.split(" ")
-  if answer[0] == "226":
-    logging.info("Upload succesful")
-  file.close()                                    # close file and FTP
-  filelist = glob.glob("upload/*.tar.gz")
-  for n in filelist: # remove all compressed log files
-    os.remove(n)
-  logging.info("Archives Purged")
-  now = datetime.datetime.now()
-  tm = f'{now.year}.{now.month}.{now.day}-{now.hour}:{now.minute}'
-  settingsUpdate("archive", "dateReported", tm)
-  logging.info("Successfull reporting at {}".format(tm))
-  session.quit()
+  archlist = glob.glob("upload/*.tar.gz")
+  if len(archlist) > 0:
+    print(f'Uploading files: {len(archlist)}')
+    for i in archlist:
+      session = ftplib.FTP(ftpServer,ftpUser,ftpPass)
+      file = open(i,'rb') 
+      session.cwd("/")
+      answer = session.storbinary('STOR /{}'.format(i[7:]), file)     # send the file and cut start text with foldername
+      answer = answer.split(" ")
+      if answer[0] == "226":
+        logging.info(f'Upload succesful {i}')
+        os.remove(i) #remove only if uploaded successfully
+      else:
+        logging.warning('Somethong went wrong while upload {i}, archive not deleted.')
+        return False
+      file.close()
+    now = datetime.datetime.now()
+    tm = f'{now.year}.{now.month}.{now.day}-{now.hour}:{now.minute}'
+    settingsUpdate("archive", "dateReported", tm)
+    logging.info("Successfull reporting at {}".format(tm))
+    session.quit()
+    return True
+  else:
+    logging.info('Nothing to upload.')
+    return False
+  
 
 def updateDrivers(): #update drivers with mqtt!
   with open("drivers.json", "w") as outfile:
@@ -263,8 +295,7 @@ def main_two():
   #  logging.warning(f'<!> error {e}')
   #  logging.info(f'<!> error {e}')
   if logRepoCounter > 0 and uFlag[7] == 1:
-    settingsUpdate("archive", "isDump", 1)
-    #globalz.isDump = 1
+    settingsUpdate("archive", "isUpload", 1)
     logging.info("Arch folder has unreported {} recordings, archivating...".format(logRepoCounter))
     mqtt_interface("status", "Reporting {} records".format(logRepoCounter))
     drv = settingsRead("driver")
@@ -272,11 +303,12 @@ def main_two():
     if check_not_ended_files():
       make_tarfile(filename, "arch/")
       #compress_logs(filename, "")
-      uploads(filename)
+    if uploads():
       logging.info(f'Reported on date {filename[7:-7]}')
       settingsUpdate("archive", "uploadFlag", 0)
-      settingsUpdate("archive", "isDump", 0)
-      #globalz.isDump = 0
+      settingsUpdate("archive", "isUpload", 0)
+    else:
+      pass
   time.sleep(30) #just for debug or something
 
 while True:

@@ -37,7 +37,7 @@ def settingsRead(type):
       if type == "archive":
         outlist = [];
         outlist.append(psettj["archive"]["isDump"])    # 0
-        outlist.append(psettj["archive"]["archFile"])     # 1
+        outlist.append(psettj["archive"]["isUpload"])     # 1
         outlist.append(psettj["archive"]["placeholder"])  # 2
         outlist.append(psettj["archive"]["dateReported"]) # 3
         outlist.append(psettj["archive"]["packQueue"])    # 4
@@ -90,8 +90,8 @@ def settingsUpdate(what, who, data):
         archsub["isDump"] = data
       if who == "profileFile":
         archsub["profileFile"] = data
-      if who == "archFile":
-        archsub["archFile"] = data
+      if who == "isUpload":
+        archsub["isUpload"] = data
       if who == "placeholder":
         archsub["placeholder"] = data
       if who == "dateReported":

@@ -16,9 +16,18 @@ while True:
   if pw == 1:
     #print("Power lost: init safe shutdown")
     settingsUpdate("sys", "powerPresent", 0) #flag says power lost, if currently dump\upload is active, program reads this status after end of reading\uploading
-    while settingsRead("archive")[0] == 1: #if yes just pass do nothing 
+    isdump = settingsRead("archive")[0]
+    isupload = settingsRead("archive")[1]
+    while isdump: #if yes just pass do nothing 
       time.sleep(10)
-    if settingsRead("archive")[0] == 0: #if no just shutdown
+      isdump = settingsRead("archive")[0]
+    while isupload: #if yes just pass do nothing 
+      time.sleep(10)
+      isdump = settingsRead("archive")[1]
+    if not isdump: #if reading active - not shutdown
+      subprocess.call(['shutdown'])
+      sys.exit()
+    if not isupload: #id not uploading - not shutdown
       subprocess.call(['shutdown'])
       sys.exit()
   time.sleep(30)

@@ -66,7 +66,6 @@ def main():
           settingsUpdate("archive", "uploadFlag", 0) ## update flag we have and ready to report data to server
           settingsUpdate("archive", "forceDump", 0)
           settingsUpdate("archive", "isDump", 1) ## update flag we at progess
-          #globalz.isDump = 1
           filename = ("arch/{}-{}.{}.{}-{}.{}.log".format(reslt2[0], globalz.now.year, globalz.now.month, globalz.now.day, globalz.now.hour, globalz.now.minute)) ###rework filename, it's can change!
           logging.info(filename)
           with open(filename, 'w') as f:
@@ -74,7 +73,6 @@ def main():
           batch_req(reslt[4], filename) # rework with globalz
           settingsUpdate("archive", "uploadFlag", 1) ## update flag we have and ready to report data to server
           settingsUpdate("archive", "isDump", 0) ## update flag we end read progress
-          #globalz.isDump = 0
           # logging.info("<i> Data ready for startDump changed to 1") #startDump deprecated?
         elif reslt[9] == 1 and reslt[4] < 4:
           settingsUpdate("archive", "forceDump", 0) #we don't want make only 500 records file!

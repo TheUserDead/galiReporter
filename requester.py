@@ -203,11 +203,9 @@ def batch_req(end, filenm):
       parser(s, filenm, clss) #???????? connected?
     if s == False and i > 100:
       settingsUpdate("archive", "isDump", 0) # move for other time report cause this time tracker purged his data but not update records counter
-      #globalz.isDump = 0
       logging.warning(f'Current read has problem. Bug in data cell counting by device. Req: {i}')
     if s == False:
       settingsUpdate("archive", "isDump", 0) # move for other time report cause this time tracker purged his data but not update records counter
-      #globalz.isDump = 0
       logging.warning("Read has no data. Possible bug.")
       badread +=1
     if s == False and badread > 2:
