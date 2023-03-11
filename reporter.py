@@ -268,12 +268,12 @@ def main_two():
     logging.info("Arch folder has unreported {} recordings, archivating...".format(logRepoCounter))
     mqtt_interface("status", "Reporting {} records".format(logRepoCounter))
     drv = settingsRead("driver")
-    filename = "upload/{}-{}.{}.{}-{}.{}.tar.gz".format(drv[0], now.year, now.month, now.day, now.hour, now.minute) #rework filename!
+    filename = f'upload/{drv[0]}-{now.year}.{now.month}.{now.day}-{now.hour}.{now.minute}.tar.gz'
     if check_not_ended_files():
       make_tarfile(filename, "arch/")
-      compress_logs(filename, "")
+      #compress_logs(filename, "")
       uploads(filename)
-      logging.info("Reported on date {}".format(filename[7:-7]))
+      logging.info(f'Reported on date {filename[7:-7]}')
       settingsUpdate("archive", "uploadFlag", 0)
       settingsUpdate("archive", "isDump", 0)
       #globalz.isDump = 0

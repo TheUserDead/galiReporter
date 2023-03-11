@@ -36,7 +36,7 @@ def unpack():
     sys.exit()
 
 def report_req(ids, lat, lon, times, hdop, alt, speed, pack, driver):
-  print(pack)
+  #print(pack)
   serverurl = settingsRead("server")[1]
   x = requests.get(f'{serverurl}id={ids}&lat={lat}&lon={lon}&timestamp={times}&hdop={hdop}&altitude={alt}&speed={speed}&driverUniqueId={driver}')
   time.sleep(0.05)
@@ -47,13 +47,12 @@ def report_req(ids, lat, lon, times, hdop, alt, speed, pack, driver):
 
 def batch_handler():
   loglist = glob.glob("unpacked/*.log")
-  print(f'<i> Current archives is {len(loglist)}')
-  for i in loglist:
+  print(f'<i> Current files is {len(loglist)}')
+  for i in progressbar(loglist, "Upload: ", 40):
     print(f'Parse {i}')
     with open(i) as fl:
-      for line in progressbar(fl, "Upload:", 40):
+      for line in fl:
         parser(line)
-  #################################COPY DATA BUG
   for i in loglist:
     os.remove(i)
   print('===Completed===')
@@ -64,7 +63,7 @@ def parser(dat):
     dt = dat.split(",")
     dt = [x.strip(' ') for x in dt]
     dt = [x.strip("'") for x in dt]
-    print(f'Device={dt[2]}, lat={dt[8]}, lon={dt[9]}, time={dt[6]}, hdop={dt[13]}, alt={dt[12]}, speed={dt[10]}, driver={dt[4]}')
+    #print(f'Device={dt[2]}, lat={dt[8]}, lon={dt[9]}, time={dt[6]}, hdop={dt[13]}, alt={dt[12]}, speed={dt[10]}, driver={dt[3]}')
     if dt[0] == "END":
       pass
     if dt[6] == 'TMD':
@@ -77,7 +76,7 @@ def parser(dat):
         dt[6] = crutch
         dt[6] = int(dt[6])+5
       # ########################################### CUT THIS CRUTCH BY THIS LINE
-      report_req(dt[2], dt[8], dt[9], dt[6], dt[13], dt[12], dt[10], dt[5], dt[4])
+      report_req(dt[2], dt[8], dt[9], dt[6], dt[13], dt[12], dt[10], dt[5], dt[3])
       crutch = dt[6]######## this line remove too!
   except IndexError:
     pass
@@ -87,5 +86,3 @@ def main():
   batch_handler()
 
 main()
-
-

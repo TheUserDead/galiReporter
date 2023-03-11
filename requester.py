@@ -151,12 +151,19 @@ def init_comm():
         logging.warn("Cannot init com port!")
         sys.exit()
 
-def initial_devconf(): #rework with initconfig file --------------------------
+def initial_devconf():
   x = settingsRead("initial")
   cimei = get_status(2)
   if x[0] == cimei:
     logging.info("It's our configured device :)")
     globalz.imei = cimei
+  # assign driver id here! Later here system checks NFC card!----------------------!
+  # every time when driver wants to move, they need authorize by NFC itd command ID x used to identify driver on tracks. 
+  # Tracker can store ID and device identifien by IMEI what we replace by config.
+    driver = settingsRead("driver")[1]
+    comm_interface(f'ID {driver}')
+    logging.info(f'Driver ID is: {driver}')
+  #--------------------------
   if x[0] != cimei:
     if len(x[0]) > 10:
       logging.warning(f'Device changed! from {x[0]} to {cimei} reconfigure')
@@ -167,9 +174,6 @@ def initial_devconf(): #rework with initconfig file --------------------------
     for a in initcomms:
       logging.info(comm_interface(f'{a}'))
       time.sleep(1)
-    idd = settingsRead("driver")
-    logging.info(comm_interface(f'ID {idd[0]}'))
-    time.sleep(1)
     settingsUpdate("initial", "devSerial", cimei)
     settingsUpdate("archive", "profileFile", "none") #RESET schema file if replaced tracker device. It's cause problem when read if it's different version!
   
@@ -223,8 +227,10 @@ def comm_interface(commandstr):
     return False
   if ans.decode('utf-8') == "IF ":
     ans = ser.read_until(b'\x20') #bytes size heree
-    if len(ans) == 2:
-      logging.warning(f'Empty data while reading! {ans}')
+    #print(f'Debug: Answer says size {ans}')
+    if ans == b'1\x00':
+      print('EXCEPT')
+      logging.warning(f'No data to read, this is a bug! {ans}')
       return False
     try:
       ssz = int(ans.decode('utf-8')) #convert to right data type

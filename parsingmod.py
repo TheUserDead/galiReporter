@@ -126,7 +126,7 @@ def parser(dataz, filenm, clss):
         #datax[n] = bytebuff.decode()
         datax[n] = f'{carnum}'; #here we don't use IMEI as car ID, master device is PC.
       if datasizes[n] >= 20:
-        datax[n] = driver #we replace userdata for external monitors with driver ID
+        datax[n] = 'none'
     if datatypes[n] == "dt": 
       bytebuff = bytearray.fromhex(datax[n])
       if globalz.timeByteOrder == "LE":
